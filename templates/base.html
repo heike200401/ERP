@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - ERP系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <h2><i class="fas fa-sitemap"></i> 系统导航</h2>
+        <ul>
+            <li><a href="/sales"><i class="fas fa-chart-line"></i>销售管理</a></li>
+            <li><a href="/purchase"><i class="fas fa-shopping-cart"></i>采购管理</a></li>
+            <li class="has-submenu">
+                <a href="/inventory"><i class="fas fa-warehouse"></i>库存管理</a>
+                <ul class="submenu">
+                    <li><a href="/inventory/stock-in"><i class="fas fa-arrow-down"></i>入库管理</a></li>
+                    <li><a href="/inventory/stock-out"><i class="fas fa-arrow-up"></i>出库管理</a></li>
+                    <li><a href="/inventory/query"><i class="fas fa-boxes"></i>库存查询</a></li>
+                    <li><a href="/inventory/transfer"><i class="fas fa-exchange-alt"></i>库存调拨</a></li>
+                    <li><a href="/inventory/check"><i class="fas fa-clipboard-list"></i>库存盘点</a></li>
+                    <li><a href="/inventory/alert"><i class="fas fa-bell"></i>库存预警</a></li>
+                    <li><a href="/inventory/batch"><i class="fas fa-tags"></i>批次管理</a></li>
+                    <li><a href="/inventory/analysis"><i class="fas fa-chart-bar"></i>库存分析</a></li>
+                    <li><a href="/inventory/return"><i class="fas fa-undo-alt"></i>退货管理</a></li>
+                    <li><a href="/inventory/warehouse"><i class="fas fa-archive"></i>库存材料</a></li>
+                    <li><a href="/inventory/cost"><i class="fas fa-balance-scale"></i>库存成本</a></li>
+                    <li><a href="/inventory/expiring"><i class="fas fa-exclamation-triangle"></i>临期管理</a></li>
+                    <li><a href="/inventory/forecast"><i class="fas fa-chart-line"></i>库存预测</a></li>
+                    <li><a href="/inventory/barcode"><i class="fas fa-barcode"></i>条码管理</a></li>
+                </ul>
+            </li>
+            <li><a href="/finance"><i class="fas fa-coins"></i>财务管理</a></li>
+            <li><a href="/hr"><i class="fas fa-users"></i>人力资源管理</a></li>
+            <li><a href="/production"><i class="fas fa-cogs"></i>生产管理</a></li>
+            <li><a href="/settings"><i class="fas fa-cog"></i>系统设置</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html> 

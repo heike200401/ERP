@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-chart-line"></i> 库存预测
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>库存需求预测</h3>
+        <form>
+            <div class="form-group">
+                <label>预测周期</label>
+                <select>
+                    <option>未来7天</option>
+                    <option>未来30天</option>
+                    <option>未来90天</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>预测商品</label>
+                <input type="text" placeholder="输入商品编号">
+            </div>
+            <div class="form-group">
+                <label>历史数据范围</label>
+                <select>
+                    <option>最近30天</option>
+                    <option>最近90天</option>
+                    <option>最近180天</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-submit">开始预测</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

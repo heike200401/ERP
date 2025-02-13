@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-arrow-down"></i> 入库管理
+</div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<div class="card">
+    <div class="form-container">
+        <h3>新建入库单</h3>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label>材料编号</label>
+                <input type="text" name="material_id" placeholder="输入材料编号" required>
+            </div>
+            <div class="form-group">
+                <label>材料名称</label>
+                <input type="text" name="name" placeholder="输入材料名称" required>
+            </div>
+            <div class="form-group">
+                <label>入库数量</label>
+                <input type="number" name="quantity" placeholder="输入入库数量" min="1" required>
+            </div>
+            <div class="form-group">
+                <label>入库日期</label>
+                <input type="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label>存放地点</label>
+                <select name="location" required>
+                    <option value="">选择存放地点</option>
+                    <option>仓库A-01区</option>
+                    <option>仓库A-02区</option>
+                    <option>仓库B-01区</option>
+                    <option>仓库B-02区</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>供应商</label>
+                <input type="text" name="supplier" placeholder="输入供应商名称">
+            </div>
+            <div class="form-group">
+                <label>采购单号</label>
+                <input type="text" name="purchase_order" placeholder="输入采购单号">
+            </div>
+            <div class="form-group">
+                <label>质检状态</label>
+                <select name="status" required>
+                    <option value="">选择质检状态</option>
+                    <option>合格</option>
+                    <option>不合格</option>
+                    <option>待检</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>备注</label>
+                <textarea name="notes" rows="3" placeholder="输入备注信息"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">提交入库</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

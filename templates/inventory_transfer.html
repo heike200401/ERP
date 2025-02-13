@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-exchange-alt"></i> 库存调拨
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>库存调拨</h3>
+        <form>
+            <div class="form-group">
+                <label>调拨商品</label>
+                <input type="text" placeholder="输入商品编号">
+            </div>
+            <div class="form-group">
+                <label>调拨数量</label>
+                <input type="number" placeholder="输入调拨数量">
+            </div>
+            <div class="form-group">
+                <label>从仓库</label>
+                <select>
+                    <option>仓库A</option>
+                    <option>仓库B</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>到仓库</label>
+                <select>
+                    <option>仓库B</option>
+                    <option>仓库A</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-submit">提交调拨</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

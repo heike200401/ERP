@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-edit"></i> 编辑材料
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>编辑材料 {{ material_id }}</h3>
+        <form id="editMaterialForm">
+            <div class="form-group">
+                <label>材料名称</label>
+                <input type="text" name="name" value="钢材" required>
+            </div>
+            <div class="form-group">
+                <label>分类</label>
+                <select name="category" required>
+                    <option value="原材料" selected>原材料</option>
+                    <option value="半成品">半成品</option>
+                    <option value="成品">成品</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>库存数量</label>
+                <input type="number" name="quantity" value="500" min="0" required>
+            </div>
+            <div class="form-group">
+                <label>单位</label>
+                <input type="text" name="unit" value="吨" required>
+            </div>
+            <div class="form-group">
+                <label>仓库位置</label>
+                <select name="location" required>
+                    <option value="仓库A-01区" selected>仓库A-01区</option>
+                    <option value="仓库A-02区">仓库A-02区</option>
+                    <option value="仓库B-01区">仓库B-01区</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>入库日期</label>
+                <input type="date" name="date" value="2023-10-01" required>
+            </div>
+            <div class="form-group">
+                <label>质检状态</label>
+                <select name="status" required>
+                    <option value="合格" selected>合格</option>
+                    <option value="不合格">不合格</option>
+                    <option value="待检">待检</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-submit">保存修改</button>
+        </form>
+    </div>
+</div>
+
+<script>
+document.getElementById('editMaterialForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+    
+    fetch('/inventory/material/update/{{ material_id }}', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(updatedData => {
+        alert('材料信息更新成功');
+        // 更新父窗口数据
+        if (window.opener) {
+            window.opener.updateMaterialRow(updatedData);
+        }
+        window.location.href = '/inventory/warehouse';
+    })
+    .catch(error => {
+        alert('更新失败: ' + error.message);
+    });
+});
+</script>
+{% endblock %} 

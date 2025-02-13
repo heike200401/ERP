@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-tags"></i> 批次管理
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>批次管理</h3>
+        <form>
+            <div class="form-group">
+                <label>商品编号</label>
+                <input type="text" placeholder="输入商品编号">
+            </div>
+            <div class="form-group">
+                <label>生产日期</label>
+                <input type="date">
+            </div>
+            <div class="form-group">
+                <label>保质期</label>
+                <input type="number" placeholder="输入保质期（天）">
+            </div>
+            <button type="submit" class="btn-submit">保存批次信息</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

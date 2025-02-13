@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-boxes"></i> 库存查询
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>库存查询</h3>
+        <form>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>物品编号</label>
+                    <input type="text" placeholder="输入物品编号">
+                </div>
+                <div class="form-group">
+                    <label>物品名称</label>
+                    <input type="text" placeholder="输入物品名称">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>物品分类</label>
+                    <select>
+                        <option value="">全部分类</option>
+                        <option>原材料</option>
+                        <option>半成品</option>
+                        <option>成品</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>仓库位置</label>
+                    <select>
+                        <option value="">全部仓库</option>
+                        <option>仓库A-01区</option>
+                        <option>仓库A-02区</option>
+                        <option>仓库B-01区</option>
+                        <option>仓库B-02区</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>库存数量范围</label>
+                    <div class="range-input">
+                        <input type="number" placeholder="最小数量" min="0">
+                        <span>至</span>
+                        <input type="number" placeholder="最大数量" min="0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>入库时间范围</label>
+                    <div class="range-input">
+                        <input type="date">
+                        <span>至</span>
+                        <input type="date">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>供应商</label>
+                    <input type="text" placeholder="输入供应商名称">
+                </div>
+                <div class="form-group">
+                    <label>质检状态</label>
+                    <select>
+                        <option value="">全部状态</option>
+                        <option>合格</option>
+                        <option>不合格</option>
+                        <option>待检</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn-submit">查询</button>
+                <button type="reset" class="btn-reset">重置</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %} 

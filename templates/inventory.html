@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-warehouse"></i> 库存管理
+</div>
+
+<div class="card">
+    <div class="category-nav">
+        <a href="#basic" class="nav-item active">基础管理</a>
+        <a href="#operations" class="nav-item">操作管理</a>
+        <a href="#analysis" class="nav-item">分析管理</a>
+        <a href="#system" class="nav-item">系统管理</a>
+    </div>
+
+    <div class="category-section" id="basic">
+        <h3 class="category-title">基础管理</h3>
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3><i class="fas fa-boxes"></i> 库存查询</h3>
+                <p>实时查看库存状态，了解库存分布，支持多维度筛选</p>
+            </div>
+            <div class="feature-item">
+                <h3><i class="fas fa-archive"></i> 库存材料</h3>
+                <p>管理库存材料信息，查看材料分布，优化库存结构</p>
+                <a href="{{ url_for('inventory_warehouse') }}" class="btn-action">进入</a>
+            </div>
+            <div class="feature-item">
+                <h3><i class="fas fa-tags"></i> 批次管理</h3>
+                <p>管理商品批次，跟踪生产日期和保质期</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-section" id="operations">
+        <h3 class="category-title">操作管理</h3>
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3><i class="fas fa-arrow-down"></i> 入库管理</h3>
+                <p>管理商品入库，记录入库信息，更新库存数量</p>
+                <a href="{{ url_for('stock_in') }}" class="btn-action">进入</a>
+            </div>
+            <div class="feature-item">
+                <h3><i class="fas fa-arrow-up"></i> 出库管理</h3>
+                <p>管理商品出库，记录出库信息，更新库存数量</p>
+                <a href="{{ url_for('stock_out') }}" class="btn-action">进入</a>
+            </div>
+            <div class="feature-item">
+                <h3><i class="fas fa-exchange-alt"></i> 库存调拨</h3>
+                <p>管理库存调拨，优化库存分布，跟踪调拨进度</p>
+            </div>
+            <div class="feature-item">
+                <h3><i class="fas fa-undo-alt"></i> 退货管理</h3>
+                <p>处理商品退货，管理退货流程，更新库存</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-section" id="analysis">
+        <h3 class="category-title">分析管理</h3>
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3><i class="fas fa-chart-bar"></i> 库存分析</h3>
+                <p>分析库存周转率，优化库存结构，降低库存成本</p>
+            </div>
+            <div class="feature-item">
+                <h3><i class="fas fa-balance-scale"></i> 库存成本</h3>
+                <p>计算库存成本，分析库存价值，支持多种计价方法</p>
+            </div>
+            <div class="feature-item">
+                <h3><i class="fas fa-chart-line"></i> 库存预测</h3>
+                <p>基于历史数据预测未来库存需求，优化采购计划</p>
+            </div>
+            <div class="feature-item">
+                <h3><i class="fas fa-exclamation-triangle"></i> 临期管理</h3>
+                <p>监控临期商品，及时处理临期库存，减少损失</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-section" id="system">
+        <h3 class="category-title">系统管理</h3>
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3><i class="fas fa-clipboard-list"></i> 库存盘点</h3>
+                <p>进行库存盘点，确保账实相符，生成盘点报告</p>
+            </div>
+            <div class="feature-item">
+                <h3><i class="fas fa-bell"></i> 库存预警</h3>
+                <p>设置库存预警，防止缺货或积压，自动提醒</p>
+            </div>
+            <div class="feature-item">
+                <h3><i class="fas fa-barcode"></i> 条码管理</h3>
+                <p>管理商品条码，支持条码打印和扫描入库</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

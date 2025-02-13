@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-barcode"></i> 条码管理
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>商品条码管理</h3>
+        <form>
+            <div class="form-group">
+                <label>商品编号</label>
+                <input type="text" placeholder="输入商品编号">
+            </div>
+            <div class="form-group">
+                <label>条码类型</label>
+                <select>
+                    <option>EAN-13</option>
+                    <option>Code 128</option>
+                    <option>QR Code</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>条码内容</label>
+                <input type="text" placeholder="输入条码内容">
+            </div>
+            <button type="submit" class="btn-submit">生成条码</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 
