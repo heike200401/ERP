@@ -1,0 +1,27 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-lock"></i> 权限管理
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>权限管理</h3>
+        <form>
+            <div class="form-group">
+                <label>角色</label>
+                <select>
+                    <option>管理员</option>
+                    <option>普通用户</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>权限设置</label>
+                <textarea rows="3" placeholder="输入权限设置"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">保存权限</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

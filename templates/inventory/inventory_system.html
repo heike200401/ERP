@@ -1,0 +1,25 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-cog"></i> 库存系统管理
+</div>
+
+<div class="card">
+    <p class="description">这里是库存系统管理模块，您可以进行以下操作：</p>
+    <div class="feature-list">
+        <div class="feature-item">
+            <h3><i class="fas fa-clipboard-list"></i> 库存盘点</h3>
+            <p>进行库存盘点，确保账实相符，生成盘点报告</p>
+        </div>
+        <div class="feature-item">
+            <h3><i class="fas fa-bell"></i> 库存预警</h3>
+            <p>设置库存预警，防止缺货或积压，自动提醒</p>
+        </div>
+        <div class="feature-item">
+            <h3><i class="fas fa-barcode"></i> 条码管理</h3>
+            <p>管理商品条码，支持条码打印和扫描入库</p>
+        </div>
+    </div>
+</div>
+{% endblock %} 

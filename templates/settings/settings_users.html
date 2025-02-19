@@ -1,0 +1,31 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-users"></i> 用户管理
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>用户管理</h3>
+        <form>
+            <div class="form-group">
+                <label>用户名</label>
+                <input type="text" placeholder="输入用户名">
+            </div>
+            <div class="form-group">
+                <label>角色</label>
+                <select>
+                    <option>管理员</option>
+                    <option>普通用户</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>权限</label>
+                <input type="text" placeholder="设置用户权限">
+            </div>
+            <button type="submit" class="btn-submit">保存设置</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

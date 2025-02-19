@@ -1,0 +1,34 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-cog"></i> 系统配置
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>系统配置</h3>
+        <form>
+            <div class="form-group">
+                <label>系统名称</label>
+                <input type="text" placeholder="输入系统名称">
+            </div>
+            <div class="form-group">
+                <label>时区设置</label>
+                <select>
+                    <option>UTC+8</option>
+                    <option>UTC+0</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>语言设置</label>
+                <select>
+                    <option>中文</option>
+                    <option>英文</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-submit">保存配置</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-exclamation-triangle"></i> 临期管理
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>临期商品管理</h3>
+        <form>
+            <div class="form-group">
+                <label>商品编号</label>
+                <input type="text" placeholder="输入商品编号">
+            </div>
+            <div class="form-group">
+                <label>生产日期</label>
+                <input type="date">
+            </div>
+            <div class="form-group">
+                <label>保质期</label>
+                <input type="number" placeholder="输入保质期（天）">
+            </div>
+            <div class="form-group">
+                <label>处理方式</label>
+                <select>
+                    <option>促销处理</option>
+                    <option>退货处理</option>
+                    <option>销毁处理</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-submit">提交处理</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

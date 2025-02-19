@@ -1,0 +1,139 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-boxes"></i> 库存材料
+</div>
+
+<div class="card">
+    <div class="inventory-controls">
+        <div class="search-filter">
+            <input type="text" placeholder="搜索材料编号或名称">
+            <button type="button" class="btn-search">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <button type="button" class="btn-export">
+            <i class="fas fa-file-export"></i> 导出数据
+        </button>
+    </div>
+
+    <div class="inventory-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>材料编号</th>
+                    <th>材料名称</th>
+                    <th>分类</th>
+                    <th>库存数量</th>
+                    <th>单位</th>
+                    <th>仓库位置</th>
+                    <th>入库日期</th>
+                    <th>质检状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>M1001</td>
+                    <td>钢材</td>
+                    <td>原材料</td>
+                    <td>500</td>
+                    <td>吨</td>
+                    <td>仓库A-01区</td>
+                    <td>2023-10-01</td>
+                    <td><span class="status-badge success">合格</span></td>
+                    <td>
+                        <button class="btn-action small" onclick="editMaterial('M1001')">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-action small danger" onclick="deleteMaterial('M1001')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>M1002</td>
+                    <td>铝材</td>
+                    <td>原材料</td>
+                    <td>300</td>
+                    <td>吨</td>
+                    <td>仓库A-01区</td>
+                    <td>2023-10-05</td>
+                    <td><span class="status-badge warning">待检</span></td>
+                    <td>
+                        <button class="btn-action small" onclick="editMaterial('M1002')">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-action small danger" onclick="deleteMaterial('M1002')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                <!-- 更多数据行 -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination">
+        <button class="btn-pagination" disabled>
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <span class="page-info">第 1 页，共 5 页</span>
+        <button class="btn-pagination">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</div>
+
+<script>
+function editMaterial(materialId) {
+    if (confirm('确定要编辑材料 ' + materialId + ' 吗？')) {
+        // 跳转到编辑页面
+        window.location.href = '/inventory/material/edit/' + materialId;
+    }
+}
+
+function deleteMaterial(materialId) {
+    if (confirm('确定要删除材料 ' + materialId + ' 吗？')) {
+        // 发送删除请求
+        fetch('/inventory/material/delete/' + materialId, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('材料删除成功');
+                window.location.reload();
+            } else {
+                throw new Error('删除失败');
+            }
+        })
+        .catch(error => {
+            alert(error.message);
+        });
+    }
+}
+
+function updateMaterialRow(data) {
+    const row = document.querySelector(`tr[data-material-id="${data.material_id}"]`);
+    if (row) {
+        row.cells[1].textContent = data.name;
+        row.cells[2].textContent = data.category;
+        row.cells[3].textContent = data.quantity;
+        row.cells[4].textContent = data.unit;
+        row.cells[5].textContent = data.location;
+        row.cells[6].textContent = data.date;
+        row.cells[7].innerHTML = `<span class="status-badge ${getStatusClass(data.status)}">${data.status}</span>`;
+    }
+}
+
+function getStatusClass(status) {
+    switch(status) {
+        case '合格': return 'success';
+        case '不合格': return 'error';
+        case '待检': return 'warning';
+        default: return '';
+    }
+}
+</script>
+{% endblock %} 

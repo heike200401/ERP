@@ -1,60 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="hero-section">
-    <div class="hero-content">
-        <h1 class="hero-title">欢迎使用ERP管理系统</h1>
-        <p class="hero-description">高效、智能、一体化的企业资源管理解决方案</p>
-        <div class="hero-actions">
-            <a href="/inventory" class="btn-primary">开始使用</a>
-            <a href="/settings" class="btn-secondary">系统设置</a>
-        </div>
-    </div>
-    <div class="hero-image">
-        <img src="{{ url_for('static', filename='images/hero-bg.jpg') }}" alt="ERP系统">
-    </div>
+<div class="page-header">
+    <i class="fas fa-home"></i> 首页
 </div>
 
-<div class="features-section">
-    <h2 class="section-title">核心功能</h2>
-    <div class="features-grid">
-        <div class="feature-card">
-            <i class="fas fa-chart-line feature-icon"></i>
-            <h3 class="feature-title">销售管理</h3>
-            <p class="feature-description">实时跟踪销售数据，优化销售策略</p>
-        </div>
-        <div class="feature-card">
-            <i class="fas fa-shopping-cart feature-icon"></i>
-            <h3 class="feature-title">采购管理</h3>
-            <p class="feature-description">高效管理采购流程，控制采购成本</p>
-        </div>
-        <div class="feature-card">
-            <i class="fas fa-warehouse feature-icon"></i>
-            <h3 class="feature-title">库存管理</h3>
-            <p class="feature-description">实时监控库存，优化库存结构</p>
-        </div>
-        <div class="feature-card">
-            <i class="fas fa-users feature-icon"></i>
-            <h3 class="feature-title">人力资源管理</h3>
-            <p class="feature-description">全面管理员工信息，优化人力资源配置</p>
-        </div>
-    </div>
-</div>
-
-<div class="stats-section">
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="stat-value">150+</div>
-            <div class="stat-label">企业用户</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value">95%</div>
-            <div class="stat-label">用户满意度</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value">24/7</div>
-            <div class="stat-label">技术支持</div>
-        </div>
-    </div>
+<div class="card">
+    <h3>欢迎使用 ERP 系统</h3>
+    <p>请从左侧导航栏选择功能模块。</p>
 </div>
 {% endblock %} 

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-clipboard-list"></i> 库存盘点
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>库存盘点</h3>
+        <form>
+            <div class="form-group">
+                <label>盘点仓库</label>
+                <select>
+                    <option>仓库A</option>
+                    <option>仓库B</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>盘点时间</label>
+                <input type="datetime-local">
+            </div>
+            <div class="form-group">
+                <label>盘点备注</label>
+                <textarea rows="3" placeholder="输入盘点备注"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">开始盘点</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

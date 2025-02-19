@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-edit"></i> 编辑仓库信息
+</div>
+
+<div class="card">
+    <form method="POST">
+        <div class="form-group">
+            <label for="name">仓库名称</label>
+            <input type="text" id="name" name="name" value="{{ warehouse.name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="location">仓库位置</label>
+            <input type="text" id="location" name="location" value="{{ warehouse.location }}" required>
+        </div>
+        <div class="form-group">
+            <label for="capacity">仓库容量</label>
+            <input type="number" id="capacity" name="capacity" value="{{ warehouse.capacity }}" required>
+        </div>
+        <button type="submit" class="btn-submit">保存更改</button>
+        <a href="{{ url_for('inventory_warehouse') }}" class="btn-reset">取消</a>
+    </form>
+</div>
+{% endblock %} 

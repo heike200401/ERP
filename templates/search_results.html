@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-search"></i> 搜索结果
+</div>
+
+<div class="card">
+    {% if results %}
+        <ul class="search-results">
+            {% for result in results %}
+            <li>
+                <a href="{{ result.url }}">
+                    <span class="result-type">{{ result.type }}</span>
+                    <span class="result-name">{{ result.name }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>未找到与 "{{ query }}" 相关的结果</p>
+    {% endif %}
+</div>
+{% endblock %} 

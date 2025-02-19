@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-warehouse"></i> 仓库管理
+</div>
+
+<div class="card">
+    <div class="warehouse-controls">
+        <a href="{{ url_for('inventory_warehouse') }}" class="btn-action">
+            <i class="fas fa-plus"></i> 添加仓库
+        </a>
+    </div>
+
+    <div class="warehouse-list">
+        {% for warehouse in warehouses %}
+        <div class="warehouse-item">
+            <h3>{{ warehouse.name }}</h3>
+            <p>位置: {{ warehouse.location }}</p>
+            <p>容量: {{ warehouse.capacity }}</p>
+            <div class="actions">
+                <a href="{{ url_for('edit_warehouse', id=warehouse.id) }}" class="btn-action small">
+                    <i class="fas fa-edit"></i> 编辑
+                </a>
+                <a href="{{ url_for('delete_warehouse', id=warehouse.id) }}" class="btn-action small danger">
+                    <i class="fas fa-trash"></i> 删除
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-chart-bar"></i> 库存分析
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>库存分析</h3>
+        <form>
+            <div class="form-group">
+                <label>分析周期</label>
+                <select>
+                    <option>最近7天</option>
+                    <option>最近30天</option>
+                    <option>最近90天</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>分析维度</label>
+                <select>
+                    <option>库存周转率</option>
+                    <option>库存成本</option>
+                    <option>库存结构</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-submit">开始分析</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

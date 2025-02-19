@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-balance-scale"></i> 库存成本
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>库存成本管理</h3>
+        <form>
+            <div class="form-group">
+                <label>商品编号</label>
+                <input type="text" placeholder="输入商品编号">
+            </div>
+            <div class="form-group">
+                <label>成本计算方法</label>
+                <select>
+                    <option>先进先出法</option>
+                    <option>加权平均法</option>
+                    <option>个别计价法</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-submit">计算成本</button>
+        </form>
+    </div>
+</div>
+{% endblock %} 

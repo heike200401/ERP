@@ -1,0 +1,24 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <i class="fas fa-clipboard-list"></i> 日志管理
+</div>
+
+<div class="card">
+    <div class="form-container">
+        <h3>系统日志</h3>
+        <div class="log-list">
+            <div class="log-item">
+                <span class="log-time">2023-10-01 10:00</span>
+                <span class="log-action">用户登录</span>
+            </div>
+            <div class="log-item">
+                <span class="log-time">2023-10-01 10:05</span>
+                <span class="log-action">数据更新</span>
+            </div>
+            <!-- 更多日志条目 -->
+        </div>
+    </div>
+</div>
+{% endblock %} 
